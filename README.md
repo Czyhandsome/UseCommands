@@ -159,3 +159,20 @@ function showParams() {
 }
 ```
 
+### - 使用`xargs`执行命令，杀灭指定名称java进程
+
+```bash
+# 消灭Zuul为名称的Java进程
+jps -l | grep Zuul | cut -d ' ' -f 1 | xargs -I {} kill -15 {}
+```
+
+### - 将`stdout`或`stderr`赋值给某个变量
+
+```bash
+# 将stderr给err
+err=$(curl -m 5 "http://localhost:9089/DemoServiceA/v1/instances" 2>&1)
+
+# 将stdout给result
+result=$(curl -m 5 "http://localhost:9089/DemoServiceA/v1/instances")
+```
+
