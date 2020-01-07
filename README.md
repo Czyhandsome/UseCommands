@@ -141,16 +141,6 @@ TARGET_LINK_LIBRARIES(yaml_usage OFF.a)
 
 ## Bash
 
-### - 遍历所有目录
-
-```bash
-for dir in */; do
-  echo "$dir";
-done;
-```
-
-
-
 ### - 进入当前目录
 
 ```bash
@@ -184,6 +174,38 @@ err=$(curl -m 5 "http://localhost:9089/DemoServiceA/v1/instances" 2>&1)
 
 # 将stdout给result
 result=$(curl -m 5 "http://localhost:9089/DemoServiceA/v1/instances")
+```
+
+### - 遍历所有目录
+
+```bash
+for dir in */; do
+  echo "$dir";
+done;
+```
+
+- 例子：更新当前目录下所有的Git或Svn:
+
+```bash
+#!/usr/bin/env bash
+
+# Go to self
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+cd "${DIR}" || exit
+
+for dir in */; do
+  cd "$dir" || exit
+  if [[ -d .git ]]; then
+    echo "Find git! Updating..."
+    git pull
+  elif [[ -d .svn ]]; then
+    echo "Find svn! Updating..."
+    svn update
+  else
+    echo "Not git or svn! Ignoring..."
+  fi
+  cd ..
+done
 ```
 
 ## TortoiseGit
