@@ -141,6 +141,16 @@ TARGET_LINK_LIBRARIES(yaml_usage OFF.a)
 
 ## Bash
 
+### - 遍历所有目录
+
+```bash
+for dir in */; do
+  echo "$dir";
+done;
+```
+
+
+
 ### - 进入当前目录
 
 ```bash
