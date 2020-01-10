@@ -213,3 +213,8 @@ done
 ### 给TortoiseGit设置ssh-key并上传至github上
 
 [给TortoiseGit设置ssh-key并上传至github上](https://blog.csdn.net/gnail_oug/article/details/78794339)
+
+使用软件：
+
+- PuTTY GEN
+- Pageant
