@@ -208,6 +208,20 @@ for dir in */; do
 done
 ```
 
+## AWK
+
+### - 内置变量
+
+https://www.tutorialspoint.com/awk/awk_built_in_variables.htm
+
+| 名称     | 作用        | 示例            |
+| -------- | ----------- | --------------- |
+| ARGC     | 变量数量    |                 |
+| ARGV     | 变量列表    | ARGV[0]         |
+| ENVIRON  | 环境变量Map | ENVIRON["USER"] |
+| FILENAME | 文件名称    |                 |
+| NR       | 当前行数    |                 |
+
 ## TortoiseGit
 
 ### 给TortoiseGit设置ssh-key并上传至github上
