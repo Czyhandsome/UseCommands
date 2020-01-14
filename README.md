@@ -214,13 +214,16 @@ done
 
 https://www.tutorialspoint.com/awk/awk_built_in_variables.htm
 
-| 名称     | 作用        | 示例            |
-| -------- | ----------- | --------------- |
-| ARGC     | 变量数量    |                 |
-| ARGV     | 变量列表    | ARGV[0]         |
-| ENVIRON  | 环境变量Map | ENVIRON["USER"] |
-| FILENAME | 文件名称    |                 |
-| NR       | 当前行数    |                 |
+| 名称     | 作用             | 示例            |
+| -------- | ---------------- | --------------- |
+| ARGC     | 变量数量         |                 |
+| ARGV     | 变量列表         | ARGV[0]         |
+| ENVIRON  | 环境变量Map      | ENVIRON["USER"] |
+| FILENAME | 文件名称         |                 |
+| NF       | Number of fields |                 |
+| NR       | 当前行数         |                 |
+| $0       | 当前记录         |                 |
+| $1       | 第一个field      |                 |
 
 ## TortoiseGit
 
