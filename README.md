@@ -225,6 +225,27 @@ https://www.tutorialspoint.com/awk/awk_built_in_variables.htm
 | $0       | 当前记录         |                 |
 | $1       | 第一个field      |                 |
 
+### - 查看每分钟有多少个请求
+
+```bash
+# 将request log过滤出来
+cat yyzx_managementwebv2.log | grep "request log:" > "request_log.log";
+
+# 直接在原始request_log文件上记录每分钟访问的次数
+cat request_log.log | awk '
+{
+	txt=sprintf("%s %s", $1, substr($2, 0, 5))
+    a[txt]++
+}
+
+END {
+    for (i in a) {
+	    printf("%s %d\n", i, a[i])
+	}
+}
+' | sort > "counting.log";
+```
+
 ## TortoiseGit
 
 ### 给TortoiseGit设置ssh-key并上传至github上
