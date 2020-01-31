@@ -256,3 +256,12 @@ END {
 
 - PuTTY GEN
 - Pageant
+
+##  Node/Npm
+
+### 设置淘宝镜像
+
+```bash
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+```
+
