@@ -265,3 +265,15 @@ END {
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
 
+## MySQL
+
+### 查看字符集
+
+```mysql
+# 查看表字符集
+SHOW TABLE STATUS WHERE name = 'TABLE_NAME';
+
+# 查看数据库默认字符集
+SELECT * FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = 'DATABASE_NAME';
+```
+
