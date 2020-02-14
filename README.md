@@ -248,7 +248,7 @@ END {
 
 ## TortoiseGit
 
-### 给TortoiseGit设置ssh-key并上传至github上
+### - 给TortoiseGit设置ssh-key并上传至github上
 
 [给TortoiseGit设置ssh-key并上传至github上](https://blog.csdn.net/gnail_oug/article/details/78794339)
 
@@ -259,7 +259,7 @@ END {
 
 ##  Node/Npm
 
-### 设置淘宝镜像
+### - 设置淘宝镜像
 
 ```bash
 npm install -g cnpm --registry=https://registry.npm.taobao.org
@@ -267,7 +267,7 @@ npm install -g cnpm --registry=https://registry.npm.taobao.org
 
 ## MySQL
 
-### 查看字符集
+### - 查看字符集
 
 ```mysql
 # 查看表字符集
@@ -275,5 +275,13 @@ SHOW TABLE STATUS WHERE name = 'TABLE_NAME';
 
 # 查看数据库默认字符集
 SELECT * FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = 'DATABASE_NAME';
+```
+
+### - 查看数据库表的数量
+
+```mysql
+SELECT COUNT(*) AS TOTAL_NUMBER_OF_TABLES
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_SCHEMA = '{{DATA_BASE_NAME}}';
 ```
 
