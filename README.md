@@ -246,7 +246,7 @@ END {
 ' | sort > "counting.log";
 ```
 
-## TortoiseGit
+## Git
 
 ### - 给TortoiseGit设置ssh-key并上传至github上
 
@@ -256,6 +256,15 @@ END {
 
 - PuTTY GEN
 - Pageant
+
+### - Git回退某个版本
+
+```bash
+# 必须在工作空间干净时运行
+git revert <commit-id>
+```
+
+
 
 ##  Node/Npm
 
