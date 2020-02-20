@@ -208,6 +208,68 @@ for dir in */; do
 done
 ```
 
+
+
+### - 使用`getopts`读取flag参数
+
+```bash
+#!/bin/bash
+
+verbose=false
+
+function usage () {
+    cat <<EOUSAGE
+$(basename $0) hvr:e:
+    show usage
+EOUSAGE
+}
+
+while getopts :hvr:e: opt
+do
+    case $opt in
+        v)
+            verbose=true
+            ;;
+        e)
+            option_e="$OPTARG"
+            ;;
+        r)
+            option_r="$option_r $OPTARG"
+            ;;
+        h)
+            usage
+            exit 1
+            ;;
+        *)
+            echo "Invalid option: -$OPTARG" >&2
+            usage
+            exit 2
+            ;;
+    esac
+done
+
+
+echo "Verbose is $verbose"
+echo "option_e is \"$option_e\""
+echo "option_r is \"$option_r\""
+echo "\$@ pre shift is \"$@\""
+shift $((OPTIND - 1))
+echo "\$@ post shift is \"$@\""
+```
+
+结果是：
+
+```terminal
+$ ./test-getopts.sh -r foo1 -v -e bla -r foo2 remain1 remain2
+Verbose is true
+option_e is "bla"
+option_r is " foo1 foo2"
+$@ pre shift is "-r foo1 -v -e bla -r foo2 remain1 remain2"
+$@ post shift is "remain1 remain2"
+```
+
+
+
 ## AWK
 
 ### - 内置变量
