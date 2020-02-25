@@ -579,3 +579,52 @@ WHERE TRX_STATE = 'LOCK WAIT';
 ```
 
 **Reference** - [MySQL Troubleshooting: What To Do When Queries Don't Work](https://rads.stackoverflow.com/amzn/click/com/1449312004), Chapter 6 - Page 96.
+
+## Redis
+
+### - 查看sentinel与master的信息
+
+```bash
+# 查看sentinel节点对应的master信息
+redis-cli -h 172.31.203.7 -p 26390 info|grep status
+
+# 结果：
+# master0:name=s1,status=ok,address=172.31.203.8:6391,slaves=2,sentinels=3
+# master1:name=dev1,status=sdown,address=172.31.203.7:6381,slaves=0,sentinels=1
+
+# 查看所有信息
+redis-cli -h 172.31.203.7 -p 26390 info
+
+#结果：
+# Server
+redis_version:4.0.9
+redis_git_sha1:00000000
+...
+
+# Clients
+connected_clients:97
+client_longest_output_list:0
+client_biggest_input_buf:0
+blocked_clients:0
+
+# CPU
+used_cpu_sys:2939.52
+used_cpu_user:2612.22
+used_cpu_sys_children:0.00
+used_cpu_user_children:0.00
+
+# Stats
+total_connections_received:5784
+total_commands_processed:11748023
+...
+
+# Sentinel
+sentinel_masters:2
+sentinel_tilt:0
+sentinel_running_scripts:0
+sentinel_scripts_queue_length:0
+sentinel_simulate_failure_flags:0
+master0:name=s1,status=ok,address=172.31.203.8:6391,slaves=2,sentinels=3
+master1:name=dev1,status=sdown,address=172.31.203.7:6381,slaves=0,sentinels=1
+```
+
