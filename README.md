@@ -268,6 +268,18 @@ $@ pre shift is "-r foo1 -v -e bla -r foo2 remain1 remain2"
 $@ post shift is "remain1 remain2"
 ```
 
+## SED
+
+#### - 字符串替换
+
+```bash
+# 将172.31.63.26替换为172.31.236.3
+sed -i 's/172\.31\.63\.26/172\.31\.236\.3/' conf/nginx.conf
+
+# 将devrec.iflytek.com改为devrec2.iflytek.com
+sed -i 's/devrec\.iflytek\.com/devrec2\.iflytek\.com/'
+```
+
 
 
 ## AWK
