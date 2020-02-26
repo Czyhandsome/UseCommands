@@ -277,7 +277,7 @@ $@ post shift is "remain1 remain2"
 sed -i 's/172\.31\.63\.26/172\.31\.236\.3/' conf/nginx.conf
 
 # 将devrec.iflytek.com改为devrec2.iflytek.com
-sed -i 's/devrec\.iflytek\.com/devrec2\.iflytek\.com/'
+sed -i 's/devrec\.iflytek\.com/devrec2\.iflytek\.com/' conf/nginx.conf
 ```
 
 
