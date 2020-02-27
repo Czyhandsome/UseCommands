@@ -706,6 +706,17 @@ WHERE TRX_STATE = 'LOCK WAIT';
 
 **Reference** - [MySQL Troubleshooting: What To Do When Queries Don't Work](https://rads.stackoverflow.com/amzn/click/com/1449312004), Chapter 6 - Page 96.
 
+
+
+### - 截取字符串
+
+```mysql
+SELECT SUBSTR('Hello My Dear friend!', 2, 6)
+# 结果：'ello M'
+```
+
+
+
 ## Redis
 
 ### - 查看sentinel与master的信息
