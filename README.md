@@ -38,7 +38,10 @@ Add-AppxPackage .\app_name.appx
   或者
 
   ```bash
-  find /usr/server -xdev -type f -size +100M -exec ls -la {} \; | sort -rnk 5
+find /usr/server -xdev -type f -size +100M -exec ls -la {} \; | sort -rnk 5
+
+# 过滤.log文件
+find /usr/server -xdev -type f -name "*.log" -exec ls -la {} \; | sort -rnk 5 | head -n 20
   ```
 
 - 设置go get的https代理：
