@@ -768,3 +768,21 @@ master0:name=s1,status=ok,address=172.31.203.8:6391,slaves=2,sentinels=3
 master1:name=dev1,status=sdown,address=172.31.203.7:6381,slaves=0,sentinels=1
 ```
 
+## Groovy
+
+### - 运行groovy程序
+
+```groovy
+task runScript(dependsOn: 'classes', type: JavaExec) {
+    def key = "Main"
+    # 设置main
+    if (project.hasProperty(key)) {
+        main = project.getProperties().get(key)
+    } else {
+        main = "Usage"
+    }
+    # 设置classpath
+    classpath = sourceSets.main.runtimeClasspath
+}
+```
+
