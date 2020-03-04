@@ -391,6 +391,23 @@ OP is one of ‘-eq’, ‘-ne’, ‘-lt’, ‘-le’, ‘-gt’, or ‘-ge’
 export LC_ALL="en_US.UTF-8"
 ```
 
+### - 将所有参数传递给bash
+
+- 使用`$@`可以将所有参数（除了**$0**，它代表这个bash脚本的名称）通过空格连接起来。
+
+```bash
+# 打印所有参数
+function printArgs() {
+    echo "$@"
+}
+
+# $ printArgs 1 2 3.txt
+# 结果：1 2 3.txt
+
+# 执行redis-cli
+redis-cli -h 172.31.203.8 -p 6391 -a 'UIX*$MD78p' "$@"
+```
+
 
 
 ## SED
