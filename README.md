@@ -408,6 +408,12 @@ function printArgs() {
 redis-cli -h 172.31.203.8 -p 6391 -a 'UIX*$MD78p' "$@"
 ```
 
+### - 将字符串转为小写
+
+```bash
+serviceName=$(echo "$2" | awk 'print tolower{$0}')
+```
+
 
 
 ## SED
