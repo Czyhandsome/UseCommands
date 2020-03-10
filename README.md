@@ -793,6 +793,18 @@ master0:name=s1,status=ok,address=172.31.203.8:6391,slaves=2,sentinels=3
 master1:name=dev1,status=sdown,address=172.31.203.7:6381,slaves=0,sentinels=1
 ```
 
+
+
+### - 根据pattern删除keys
+
+```bash
+redis-cli --scan --pattern "*Slicing*" | xargs redis-cli del
+```
+
+
+
+
+
 ## Groovy
 
 ### - 运行groovy程序
