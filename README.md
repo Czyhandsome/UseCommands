@@ -414,6 +414,14 @@ redis-cli -h 172.31.203.8 -p 6391 -a 'UIX*$MD78p' "$@"
 serviceName=$(echo "$2" | awk 'print tolower{$0}')
 ```
 
+### - 提取文件名、文件名无后缀与文件后缀名
+
+```bash
+filename=$(basename -- "$1")
+extension="${filename##*.}"
+filename="${filename%.*}"
+```
+
 
 
 ## SED
