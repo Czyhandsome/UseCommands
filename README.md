@@ -850,3 +850,27 @@ task runScript(dependsOn: 'classes', type: JavaExec) {
 }
 ```
 
+## Java
+
+### - 运行jmx
+
+```bash
+java \
+-Dcom.sun.management.jmxremote.port=1099 \
+-Dcom.sun.management.jmxremote.ssl=false \
+-Dcom.sun.management.jmxremote.authenticate=false \
+-Djava.rmi.server.hostname=localhost \
+-jar <JAR_NAME>
+```
+
+
+
+注：
+
+1. -Dcom.sun.management.jmxremote.port ：这个是配置远程 connection 的端口号的，要确定这个端口没有被占用
+
+2. -Dcom.sun.management.jmxremote.ssl=false 指定了 JMX 是否启用 ssl
+
+3. -Dcom.sun.management.jmxremote.authenticate=false  指定了JMX 是否启用鉴权（需要用户名，密码鉴权）
+
+4. -Djava.rmi.server.hostname ：这个是配置 server 的 IP 的
