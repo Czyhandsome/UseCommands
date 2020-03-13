@@ -874,3 +874,8 @@ java \
 3. -Dcom.sun.management.jmxremote.authenticate=false  指定了JMX 是否启用鉴权（需要用户名，密码鉴权）
 
 4. -Djava.rmi.server.hostname ：这个是配置 server 的 IP 的
+
+## Zsh
+
+### - Oh My Zsh
+[https://www.freecodecamp.org/news/how-to-configure-your-macos-terminal-with-zsh-like-a-pro-c0ab3f3c1156/](https://www.freecodecamp.org/news/how-to-configure-your-macos-terminal-with-zsh-like-a-pro-c0ab3f3c1156/)
