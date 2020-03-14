@@ -152,6 +152,14 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 cd "${DIR}" || exit
 ```
 
+### - for循环字面变量
+```bash
+for plugin in "autosuggestions" "syntax-highlighting" "docker"
+do
+    git clone https://github.com/zsh-users/zsh-${plugin}.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-${plugin}
+done
+```
+
 ### - 遍历所有参数
 
 ```bash
