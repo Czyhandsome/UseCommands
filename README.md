@@ -10,6 +10,9 @@ sudo netstat -anp|grep CLOSE_WAIT|wc -l
 
 # 查看具体信息
 sudo netstat -anp|grep CLOSE_WAIT
+
+# 查看每个进程有多少个CLOSE_WAIT
+netstat -antp|grep CLOSE_WAIT | perl -lane 'print $1 if (@F[6] =~ /(\d+)(\/java)/)' | awk '{a[$1]++} END {for (i in a) { printf("%s %d\n", i, a[i]) } }' | sort -rnk2
 ```
 
 Windows:
