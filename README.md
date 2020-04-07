@@ -781,6 +781,46 @@ SELECT SUBSTR('Hello My Dear friend!', 2, 6)
 # 结果：'ello M'
 ```
 
+### - 分组查询，合并行
+
+```mysql
+SELECT p.Id,
+       p.BizId,
+       Name,
+       Content,
+       GROUP_CONCAT(b.BizId SEPARATOR ', ') AS `Support Biz`,
+       ProductType,
+       Price,
+       PricePolicy,
+       CreatorType,
+       CreatorId
+FROM TcsProduct p
+         JOIN TcsSupportBiz b ON p.Id = b.BizOutId AND b.BizOutType = 4
+GROUP BY p.Id;
+```
+
+结果:
+
+| Id | BizId | Name | Content | Support Biz |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | xftj | \[波测\]计时商品 | 波测使用的内置计时商品，禁止使用和修改 | xftj |
+| 2 | xftjhiseels | 唱词转写商品 | 唱词业务转写商品 | xftjhiseels |
+| 101 | huizhan | 会展中英翻译商品 | 会展中英翻译商品，按字数计费 | huizhan |
+| 102 | huizhan | 会展中文实时转写商品 | 会展中文实时转写商品 | huizhan |
+| 103 | huizhan | 500元 | 500元 | huizhan |
+| 104 | huizhan | 1000元 | 1000元 | huizhan |
+| 105 | huizhan | 3000元 | 3000元 | huizhan |
+| 106 | huizhan | 5000元 | 5000元 | huizhan |
+| 107 | huizhan | 7000元 | 7000元 | huizhan |
+| 108 | huizhan | 会展英中翻译商品 | 会展中英翻译商品，按字数计费 | huizhan |
+| 109 | huizhan | 会展英文实时转写商品 | 会展英文实时转写商品 | huizhan |
+| 110 | huizhan | 会展中英翻译商品 | 会展中英翻译商品，按时长计费 | huizhan |
+| 111 | huizhan | 会展英中翻译商品 | 会展英中翻译商品，按时长计费 | huizhan |
+| 112 | xftjhiseels | 5小时时长卡 | 5小时时长卡 | xftjhiseels |
+| 113 | xftjhiseels | 10小时时长卡 | 10小时时长卡 | xftjhiseels |
+| 114 | xftjhiseels | 50小时时长卡 | 50小时时长卡 | xftjhiseels |
+| 115 | xftjhiseels | 100小时时长卡 | 100小时时长卡 | xftjhiseels |
+
 
 
 ## Redis
