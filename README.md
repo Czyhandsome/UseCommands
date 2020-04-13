@@ -784,42 +784,12 @@ SELECT SUBSTR('Hello My Dear friend!', 2, 6)
 ### - 分组查询，合并行
 
 ```mysql
-SELECT p.Id,
-       p.BizId,
-       Name,
-       Content,
-       GROUP_CONCAT(b.BizId SEPARATOR ', ') AS `Support Biz`,
-       ProductType,
-       Price,
-       PricePolicy,
-       CreatorType,
-       CreatorId
-FROM TcsProduct p
-         JOIN TcsSupportBiz b ON p.Id = b.BizOutId AND b.BizOutType = 4
+SELECT p.Id
+       GROUP_CONCAT(b.BizId SEPARATOR ', ') AS `Data`
+FROM FatherData p
+         JOIN ChildData b ON p.Id = b.DataId AND b.DataType = 4
 GROUP BY p.Id;
 ```
-
-结果:
-
-| Id | BizId | Name | Content | Support Biz |
-| :--- | :--- | :--- | :--- | :--- |
-| 1 | xftj | \[波测\]计时商品 | 波测使用的内置计时商品，禁止使用和修改 | xftj |
-| 2 | xftjhiseels | 唱词转写商品 | 唱词业务转写商品 | xftjhiseels |
-| 101 | huizhan | 会展中英翻译商品 | 会展中英翻译商品，按字数计费 | huizhan |
-| 102 | huizhan | 会展中文实时转写商品 | 会展中文实时转写商品 | huizhan |
-| 103 | huizhan | 500元 | 500元 | huizhan |
-| 104 | huizhan | 1000元 | 1000元 | huizhan |
-| 105 | huizhan | 3000元 | 3000元 | huizhan |
-| 106 | huizhan | 5000元 | 5000元 | huizhan |
-| 107 | huizhan | 7000元 | 7000元 | huizhan |
-| 108 | huizhan | 会展英中翻译商品 | 会展中英翻译商品，按字数计费 | huizhan |
-| 109 | huizhan | 会展英文实时转写商品 | 会展英文实时转写商品 | huizhan |
-| 110 | huizhan | 会展中英翻译商品 | 会展中英翻译商品，按时长计费 | huizhan |
-| 111 | huizhan | 会展英中翻译商品 | 会展英中翻译商品，按时长计费 | huizhan |
-| 112 | xftjhiseels | 5小时时长卡 | 5小时时长卡 | xftjhiseels |
-| 113 | xftjhiseels | 10小时时长卡 | 10小时时长卡 | xftjhiseels |
-| 114 | xftjhiseels | 50小时时长卡 | 50小时时长卡 | xftjhiseels |
-| 115 | xftjhiseels | 100小时时长卡 | 100小时时长卡 | xftjhiseels |
 
 
 
@@ -829,46 +799,7 @@ GROUP BY p.Id;
 
 ```bash
 # 查看sentinel节点对应的master信息
-redis-cli -h 172.31.203.7 -p 26390 info|grep status
-
-# 结果：
-# master0:name=s1,status=ok,address=172.31.203.8:6391,slaves=2,sentinels=3
-# master1:name=dev1,status=sdown,address=172.31.203.7:6381,slaves=0,sentinels=1
-
-# 查看所有信息
-redis-cli -h 172.31.203.7 -p 26390 info
-
-#结果：
-# Server
-redis_version:4.0.9
-redis_git_sha1:00000000
-...
-
-# Clients
-connected_clients:97
-client_longest_output_list:0
-client_biggest_input_buf:0
-blocked_clients:0
-
-# CPU
-used_cpu_sys:2939.52
-used_cpu_user:2612.22
-used_cpu_sys_children:0.00
-used_cpu_user_children:0.00
-
-# Stats
-total_connections_received:5784
-total_commands_processed:11748023
-...
-
-# Sentinel
-sentinel_masters:2
-sentinel_tilt:0
-sentinel_running_scripts:0
-sentinel_scripts_queue_length:0
-sentinel_simulate_failure_flags:0
-master0:name=s1,status=ok,address=172.31.203.8:6391,slaves=2,sentinels=3
-master1:name=dev1,status=sdown,address=172.31.203.7:6381,slaves=0,sentinels=1
+redis-cli -h <ip> -p <port> info|grep status
 ```
 
 
