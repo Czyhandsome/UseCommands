@@ -791,6 +791,32 @@ FROM FatherData p
 GROUP BY p.Id;
 ```
 
+### 删除表中重复字段
+
+```mysql
+CREATE TEMPORARY TABLE tmpTable
+(
+    id INT
+);
+
+INSERT INTO tmpTable
+    (id)
+SELECT id
+FROM YourTable yt
+WHERE EXISTS
+          (
+              SELECT *
+              FROM YourTabe yt2
+              WHERE yt2.title = yt.title
+                AND yt2.company = yt.company
+                AND yt2.site_id = yt.site_id
+                AND yt2.id > yt.id
+          );
+
+DELETE
+FROM YourTable
+WHERE ID IN (SELECT id FROM tmpTable);
+```
 
 
 ## Redis
