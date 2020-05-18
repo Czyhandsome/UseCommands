@@ -43,7 +43,7 @@ Add-AppxPackage .\app_name.appx
   ```bash
 find /usr/server -xdev -type f -size +100M -exec ls -la {} \; | sort -rnk 5
 
-# 过滤.log文件
+### 过滤.log文件
 find /usr/server -xdev -type f -name "*.log" -exec ls -la {} \; | sort -rnk 5 | head -n 20
   ```
 
@@ -487,6 +487,11 @@ END {
 ' | sort > "counting.log";
 ```
 
+### 将多行文件转化为括号逗号分隔
+
+```bash
+awk -vORS=, 'BEGIN{ print "(" }{ print $0 } END { print ")" }' file-name | sed 's/,$/\n/' | sed 's/,)/)/'
+```
 
 
 ## SORT
