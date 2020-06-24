@@ -100,7 +100,26 @@ clip < file-to-import.txt
 tail -c+5 lsm.lyb > lsm-noheader.lyb
 ```
 
+### - 通过curl查看网站访问耗时时间
 
+- 创建curl格式文件`curl-format.txt`，可以定义curl命令打印输出格式：
+
+```txt
+    time_namelookup:  %{time_namelookup}s\n
+       time_connect:  %{time_connect}s\n
+    time_appconnect:  %{time_appconnect}s\n
+   time_pretransfer:  %{time_pretransfer}s\n
+      time_redirect:  %{time_redirect}s\n
+ time_starttransfer:  %{time_starttransfer}s\n
+                    ----------\n
+         time_total:  %{time_total}s\n
+```
+
+- 使用`curl -w "@<format文件名>"`访问网站，获取信息：
+
+```bash
+curl -w "@curl-format.txt" -o /dev/null -s "https://www.baidu.com"
+```
 
 ## Golang
 
