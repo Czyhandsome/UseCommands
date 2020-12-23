@@ -911,3 +911,12 @@ java \
 
 ### - Oh My Zsh
 [https://www.freecodecamp.org/news/how-to-configure-your-macos-terminal-with-zsh-like-a-pro-c0ab3f3c1156/](https://www.freecodecamp.org/news/how-to-configure-your-macos-terminal-with-zsh-like-a-pro-c0ab3f3c1156/)
+
+
+## pandoc
+
+### - pdf to html
+
+```
+pandoc MANUAL.txt --pdf-engine=xelatex -o example13.pdf
+```
