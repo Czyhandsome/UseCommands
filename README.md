@@ -920,3 +920,9 @@ java \
 ```
 pandoc MANUAL.txt --pdf-engine=xelatex -o example13.pdf
 ```
+
+## 加密（openssl）
+```
+openssl enc -salt -aes256 -pbkdf2 -iter 100000 -a -in 这是我的书.md -out 这是我的书.md.enc
+openssl enc -salt -aes256 -pbkdf2 -iter 100000 -d -a -in 这是我的书.md.enc -out 这是我的书.md
+```
