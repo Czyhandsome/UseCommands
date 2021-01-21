@@ -121,6 +121,14 @@ tail -c+5 lsm.lyb > lsm-noheader.lyb
 curl -w "@curl-format.txt" -o /dev/null -s "https://www.baidu.com"
 ```
 
+### - 查看apt仓库列表
+
+```bash
+grep ^ /etc/apt/sources.list /etc/apt/sources.list.d/*
+```
+
+
+
 ## Golang
 
 ### - 交叉编译go
