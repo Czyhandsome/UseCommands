@@ -934,3 +934,11 @@ pandoc MANUAL.txt --pdf-engine=xelatex -o example13.pdf
 openssl enc -salt -aes256 -pbkdf2 -iter 100000 -a -in 这是我的书.md -out 这是我的书.md.enc
 openssl enc -salt -aes256 -pbkdf2 -iter 100000 -d -a -in 这是我的书.md.enc -out 这是我的书.md
 ```
+
+## Mac
+
+### 修复USB连接iPhone后频繁闪烁的问题
+
+```bash
+sudo killall -STOP -c usbd
+```
